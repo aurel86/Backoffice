@@ -1,30 +1,49 @@
 
 import './App.css'
 import LoginButton from './components/LoginButton';
-import { ConfirmButton } from './components/ConfirmButton';
+import CustomInput from './components/CustomInput';
+import { useState } from 'react';
+
 
 function App() {
-  const handleClick = () => {
-   console.log('Cliquer ici') 
+  const [email, setEmail ] = useState('')
+  const handleClick = (event) => {
+   console.log(event) 
   };
-
+  const onChangeMail= (event) => {
+    console.log(event)
+    setEmail(event.target.value)
+  }
   return (
     <div>
-      <input onChange={(e) =>  console.log(e.target.value)}/>
 
-<button onClick={handleClick}>Button</button>
-
-      {/* <LoginButton onClick={handleClick}>
-     Se Connecter
+    {email}
+    <LoginButton onClick={handleClick}>
+      Se Connecter
       </LoginButton>
+    <CustomInput 
+      type='email'
+      label='email'
+     onChange={onChangeMail}
+    
+    />
+    </div>
+    
+
+     
+      
+    );
+
+  };
+    
+      
+  export default App
 
 
-      <ConfirmButton title="Se Connecter !" onClick={handleClick} /> */}
-  
+
+
+      
 
    
-    </div>
-  );
-};
+    
 
-export default App

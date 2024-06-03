@@ -1,15 +1,9 @@
 import { ChangeEvent, FC, LabelHTMLAttributes } from "react";
 
-interface InputsProps {
-    type:'email'| 'password'|'text'|'number'
-    label: string
-    value: string | number
-    error: boolean
-    disabled?: boolean
-    onChange:(e: ChangeEvent<HTMLInputElement>)
-}
 
-const Inputs: FC<InputsProps> = ({
+
+
+const Inputs  = ({
    type,
    label,
    value,
