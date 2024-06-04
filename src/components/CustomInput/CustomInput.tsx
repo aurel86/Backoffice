@@ -7,7 +7,7 @@ const Inputs  = ({
    type,
    label,
    value,
-   error,
+   errorMessage,
    disabled,
    onChange,
 })  => {
@@ -22,7 +22,7 @@ const Inputs  = ({
         onChange={onChange}
         disabled={disabled}
         />
-        {error && <p className="error">Input filed can't be empty!</p>}
+        {errorMessage && <p className="error">{errorMessage}</p>}
         </div>
 
     )

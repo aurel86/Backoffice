@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import LoginButton from '../components/LoginButton/LoginButton';
 import CustomInput from '../components/CustomInput/CustomInput';
 import './LoginPage.css';
@@ -6,6 +6,8 @@ import './LoginPage.css';
 function LoginPage() {
   const [email, setEmail ] = useState('')
   const [password, setPassword ] = useState('')
+  const [mailError, setMailError] = useState("")
+  
   const handleClick = (event) => {
     console.log(email,password)
     
@@ -18,10 +20,18 @@ function LoginPage() {
     
   };
 
+
+  useEffect(() => {
+    if(email.length < 8) {
+      setMailError("Le mot de mot passe doit contenir au moins 8 caractères !")
+    } else {
+      setMailError("")
+    }
+  }, [])
+  
+
    
   return (
-    
-    
     
     <div className='container'>
     <div className='loginContainer'>    
@@ -32,13 +42,13 @@ function LoginPage() {
       type='email'
       label='email'
       onChange={onChangeMail}
-      
+      errorMessage={mailError}
       />
      <CustomInput
         type='password'
         label='password'
         onChange={inputPassword}
-        
+        errorMessage={"Le password est faux"}
         />  
     </div>
 
