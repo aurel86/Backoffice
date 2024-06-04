@@ -1,5 +1,5 @@
 import { ChangeEvent, FC, LabelHTMLAttributes } from "react";
-
+import './CustomInput.css';
 
 
 
@@ -13,7 +13,8 @@ const Inputs  = ({
 })  => {
     return (
         <div className="inputs-wrapper">
-        <label htmlFor={label}>{label}</label>
+        
+        <label className="label" htmlFor={label}>{label.toUpperCase()}</label>
         <input
         type={type}
         id={label}

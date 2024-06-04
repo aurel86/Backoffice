@@ -1,13 +1,14 @@
 import { useState } from 'react';
-import LoginButton from '../components/LoginButton';
-import CustomInput from '../components/CustomInput';
-import './LoginPage.css'
+import LoginButton from '../components/LoginButton/LoginButton';
+import CustomInput from '../components/CustomInput/CustomInput';
+import './LoginPage.css';
 
 function LoginPage() {
   const [email, setEmail ] = useState('')
   const [password, setPassword ] = useState('')
   const handleClick = (event) => {
     console.log(email,password)
+    
   };
   const onChangeMail= (event) => {
     setEmail(event.target.value)
@@ -26,23 +27,39 @@ function LoginPage() {
     <div className='loginContainer'>    
 
     
-    {/* <LoginButton onClick={handleClick}>
-      Se Connecter
-      </LoginButton>
+    <div className='customInputContainer'>
     <CustomInput 
       type='email'
       label='email'
-     onChange={onChangeMail}
-     />
+      onChange={onChangeMail}
+      
+      />
      <CustomInput
         type='password'
         label='password'
         onChange={inputPassword}
         
-        /> */}
-        </div>
-    
+        />  
     </div>
+
+    <div className='loginButtonContainer'>
+         <LoginButton onClick={handleClick}>
+         Se Connecter
+         </LoginButton>
+    </div>
+        </div>
+        
+        </div>
+        
+         
+      
+    
+    
+       
+    
+        
+    
+    
 
     
 

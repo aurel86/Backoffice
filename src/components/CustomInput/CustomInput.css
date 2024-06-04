@@ -1,0 +1,22 @@
+.inputs-wrapper {
+  border: 1px solid red;
+  width: 200px;
+  display: flex;
+  flex-direction: column ;
+  justify-content:center;
+  align-items: center;
+  
+  
+
+
+
+}
+
+.label {
+    color: rgba(0, 34, 255, 0.564);
+    
+
+
+
+
+}
