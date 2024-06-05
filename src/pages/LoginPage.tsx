@@ -3,10 +3,12 @@ import LoginButton from '../components/LoginButton/LoginButton';
 import CustomInput from '../components/CustomInput/CustomInput';
 import './LoginPage.css';
 
+
 function LoginPage() {
   const [email, setEmail ] = useState('')
   const [password, setPassword ] = useState('')
   const [mailError, setMailError] = useState("")
+  const [isNotValid, setIsNotValid] = useState(true)
   
   const handleClick = (event) => {
     console.log(email,password)
@@ -22,12 +24,26 @@ function LoginPage() {
 
 
   useEffect(() => {
+
+    console.log(email.length, password.length);
+
+    if(email.length < 4 || password.length < 8) {
+      setIsNotValid(true)
+    } else {
+      setIsNotValid(false)
+    }
+    
+
+
     if(email.length < 8) {
-      setMailError("Le mot de mot passe doit contenir au moins 8 caractères !")
+      setMailError("Nombre de caractéres insuffisant")
     } else {
       setMailError("")
     }
-  }, [])
+
+
+
+  }, [email, password])
   
 
    
@@ -49,11 +65,12 @@ function LoginPage() {
         label='password'
         onChange={inputPassword}
         errorMessage={"Le password est faux"}
+    
         />  
     </div>
 
     <div className='loginButtonContainer'>
-         <LoginButton onClick={handleClick}>
+         <LoginButton onClick={handleClick} disabled={isNotValid}>
          Se Connecter
          </LoginButton>
     </div>

@@ -4,9 +4,9 @@
 
 
 
-const LoginButton = ({ children, onClick }) => {
+const LoginButton = ({ children, onClick, disabled }) => {
     return (
-        <button onClick={onClick}>
+        <button disabled={disabled} onClick={onClick}>
 {children}
         </button>
     );
