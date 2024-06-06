@@ -9,7 +9,7 @@ function LoginPage() {
   const [password, setPassword ] = useState('')
   const [mailError, setMailError] = useState("")
   const [isNotValid, setIsNotValid] = useState(true)
-  
+  const [passwordError, setPasswordError ] = useState("")
   const handleClick = (event) => {
     
     
@@ -34,13 +34,17 @@ function LoginPage() {
     
 
 
-    if(email.length < 8) {
+    if(email.length < 4) {
       setMailError("Nombre de caractéres insuffisant")
     } else {
       setMailError("")
     }
     
-    
+    if (password.length < 8) {
+        setPasswordError("Minimum de 8 caractéres")
+    } else {
+        setPasswordError("")
+    }
     
 }, [email, password])
 
@@ -67,7 +71,7 @@ function LoginPage() {
         type='password'
         label='password'
         onChange={inputPassword}
-        errorMessage={""}
+        errorMessage={passwordError}
         
         /> 
          
