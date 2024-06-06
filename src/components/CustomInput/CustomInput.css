@@ -5,21 +5,12 @@
   flex-direction: column ;
   justify-content:center;
   align-items: center;
-  
-  
-  
 }
 
-.label {
+  .label {
     color: rgba(0, 34, 255, 0.564);
-    
-
-
-
-
 }
 
 .error {
   color: red;
 }
-

@@ -10,34 +10,33 @@ function LoginPage() {
   const [mailError, setMailError] = useState("")
   const [isNotValid, setIsNotValid] = useState(true)
   const [passwordError, setPasswordError ] = useState("")
-  const handleClick = (event) => {
-    
-    
-  };
-  const onChangeMail= (event) => {
+  
+const handleClick = () => { 
+    const body = {
+        email : email,
+        password : password,
+    }
+    console.log(body)
+}
+
+const onChangeMail= (event) => {
     setEmail(event.target.value)
-  };
+};
   const inputPassword = (event) => {
     setPassword(event.target.value)
 };
 
+    useEffect(() => {
+        if(email.length < 4 || password.length < 8) {
+        setIsNotValid(true)
+        } else {
+        setIsNotValid(false)
+        }
     
-  useEffect(() => {
-
-    console.log(email.length, password.length);
-
-    if(email.length < 4 || password.length < 8) {
-      setIsNotValid(true)
-    } else {
-      setIsNotValid(false)
-    }
-    
-
-
     if(email.length < 4) {
-      setMailError("Nombre de caractéres insuffisant")
-    } else {
-      setMailError("")
+        setMailError("Nombre de caractéres insuffisant")
+        } else {
+        setMailError("")
     }
     
     if (password.length < 8) {
@@ -46,73 +45,38 @@ function LoginPage() {
         setPasswordError("")
     }
     
-}, [email, password])
+    }, [email, password])
 
-
-    console.log('email:', email, 'password:', password)
-  
-   
-  return (
+    return (
     
     <div className='container'>
-    <div className='loginContainer'>    
-    
-    
-    <div className='customInputContainer'>
-    <CustomInput
-      type='email'
-      label='email'
-      onChange={onChangeMail}
-      errorMessage={mailError}
-      />
-     
-     
-     <CustomInput
-        type='password'
-        label='password'
-        onChange={inputPassword}
-        errorMessage={passwordError}
-        
-        /> 
-         
-    </div>
+        <div className='loginContainer'>    
+            <div className='customInputContainer'>
+                <CustomInput
+                type='email'
+                label='email'
+                onChange={onChangeMail}
+                errorMessage={mailError}
+                />
+                <CustomInput
+                type='password'
+                label='password'
+                onChange={inputPassword}
+                errorMessage={passwordError}
+                /> 
+            </div>
 
     <div className='loginButtonContainer'>
          <LoginButton onClick={handleClick} disabled={isNotValid}>
          Se Connecter
          </LoginButton>
         
-         
     </div>
-        </div>
-        
-        </div>
-        
-         
-    
-    
-       
-    
-        
-    
-    
-
-    
-
-     
-      
+    </div>
+    </div>
     );
 
   };
   
       
   export default LoginPage
-
-
-
-
-      
-
-   
-    
-
