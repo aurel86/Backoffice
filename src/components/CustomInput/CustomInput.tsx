@@ -16,6 +16,11 @@ const Inputs  = ({
         
         <label className="label" htmlFor={label}>{label.toUpperCase()}</label>
         <input
+        style={{
+            backgroundColor:'#7d8584',
+            borderRadius:'5px',
+            boxShadow:'2px 1px 1px 1px black ',
+        }}
         type={type}
         id={label}
         value={value}

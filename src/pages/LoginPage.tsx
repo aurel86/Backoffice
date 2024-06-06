@@ -11,7 +11,7 @@ function LoginPage() {
   const [isNotValid, setIsNotValid] = useState(true)
   
   const handleClick = (event) => {
-    console.log(email,password)
+    
     
   };
   const onChangeMail= (event) => {
@@ -19,10 +19,9 @@ function LoginPage() {
   };
   const inputPassword = (event) => {
     setPassword(event.target.value)
+};
+
     
-  };
-
-
   useEffect(() => {
 
     console.log(email.length, password.length);
@@ -40,46 +39,52 @@ function LoginPage() {
     } else {
       setMailError("")
     }
+    
+    
+    
+}, [email, password])
 
 
-
-  }, [email, password])
+    console.log('email:', email, 'password:', password)
   
-
    
   return (
     
     <div className='container'>
     <div className='loginContainer'>    
-
+    
     
     <div className='customInputContainer'>
-    <CustomInput 
+    <CustomInput
       type='email'
       label='email'
       onChange={onChangeMail}
       errorMessage={mailError}
       />
+     
+     
      <CustomInput
         type='password'
         label='password'
         onChange={inputPassword}
-        errorMessage={"Le password est faux"}
-    
-        />  
+        errorMessage={""}
+        
+        /> 
+         
     </div>
 
     <div className='loginButtonContainer'>
          <LoginButton onClick={handleClick} disabled={isNotValid}>
          Se Connecter
          </LoginButton>
+        
+         
     </div>
         </div>
         
         </div>
         
          
-      
     
     
        
@@ -95,7 +100,7 @@ function LoginPage() {
     );
 
   };
-    
+  
       
   export default LoginPage
 
